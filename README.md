@@ -1,6 +1,6 @@
 # Alchemistry with betalactamases
 
-This repository contains the input data for the AFE and MD workflows that can be input to the [meze workflow]()
+This repository contains the input data for the AFE and MD workflows that can be input to the [meze workflow](https://github.com/meyresearch/metalloenzymes)
 
 The `scripts` folder is split into `md` and `afe`:
 
