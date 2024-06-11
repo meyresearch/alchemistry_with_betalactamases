@@ -1,0 +1,5 @@
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+complex = loadpdb /backups/jguven/kpc2_most_recent_results/old_config_partially_protonated/inputs/protein/kpc2.pdb
+saveamberparm complex kpc2_tleap.prm7 kpc2_tleap.rst7
+quit

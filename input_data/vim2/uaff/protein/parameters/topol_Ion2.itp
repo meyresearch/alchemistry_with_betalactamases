@@ -1,0 +1,33 @@
+;
+;	File 'topol_Ion2.itp' was generated
+;	By user: jguven (1001)
+;	On host: pluto
+;	At date: Tue Apr 16 17:32:27 2024
+;
+;	This is a include topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2021.7 (-:
+;	
+;	Executable:   /usr/local/gromacs/bin/gmx
+;	Data prefix:  /usr/local/gromacs
+;	Working dir:  /home/jguven/projects/uaff/vim2/inputs/protein
+;	Command line:
+;	  gmx pdb2gmx -f vim2.input.pdb -o vim2.processed.gro -ter -water tip3p -ignh
+;	Force field was read from current directory or a relative path - path added.
+;
+
+[ moleculetype ]
+; Name            nrexcl
+Ion2                3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+; residue 236 ZN  rtp ZN   q +2.0
+     1         Zn    236     ZN     ZN      1          2       65.4   ; qtot 2
+
+; Include Position restraint file
+#ifdef POSRES
+#include "posre_Ion2.itp"
+#endif
+

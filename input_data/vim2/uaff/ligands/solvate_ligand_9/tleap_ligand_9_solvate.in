@@ -1,0 +1,13 @@
+source leaprc.gaff2
+source leaprc.water.tip3p
+loadamberparams frcmod.ions1lm_126_tip3p
+
+lig = loadmol2 /home/jguven/projects/uaff/vim2/inputs/ligands/solvate_ligand_9//ligand_9.mol2
+loadamberparams /home/jguven/projects/uaff/vim2/inputs/ligands/solvate_ligand_9//ligand_9.frcmod
+
+solvateoct lig TIP3PBOX 20.0 1.0
+addions lig Na+ 0
+addions lig Cl- 0
+
+saveamberparm lig /home/jguven/projects/uaff/vim2/inputs/ligands/ligand_9_solvated.prm7 /home/jguven/projects/uaff/vim2/inputs/ligands/ligand_9_solvated.rst7
+quit

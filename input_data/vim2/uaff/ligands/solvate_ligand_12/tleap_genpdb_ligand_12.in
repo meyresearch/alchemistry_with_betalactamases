@@ -1,0 +1,6 @@
+source leaprc.gaff2
+source leaprc.water.tip3p
+lig = loadmol2 /home/jguven/projects/uaff/vim2/inputs/ligands/solvate_ligand_12//ligand_12.mol2
+loadamberparams /home/jguven/projects/uaff/vim2/inputs/ligands/solvate_ligand_12//ligand_12.frcmod
+savepdb lig ligand_12_tleap.pdb
+quit

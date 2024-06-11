@@ -1,0 +1,54 @@
+;
+;	File 'topol.top' was generated
+;	By user: jguven (1001)
+;	On host: pluto
+;	At date: Tue Apr 16 17:32:25 2024
+;
+;	This is a standalone topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2021.7 (-:
+;	
+;	Executable:   /usr/local/gromacs/bin/gmx
+;	Data prefix:  /usr/local/gromacs
+;	Working dir:  /home/jguven/projects/uaff/vim2/inputs/protein
+;	Command line:
+;	  gmx pdb2gmx -f vim2.input.pdb -o vim2.processed.gro -ter -water tip3p -ignh
+;	Force field was read from current directory or a relative path - path added.
+;
+
+; Include forcefield parameters
+#include "parameters/amber14sb.ff/forcefield.itp"
+
+; Include chain topologies
+#include "parameters/topol_Protein.itp"
+#include "parameters/topol_Ion2.itp"
+#include "parameters/topol_Ion3.itp"
+
+; Include water topology
+#include "parameters/amber14sb.ff/tip3p.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+; Include topology for ions
+#include "parameters/amber14sb.ff/ions.itp"
+
+[ system ]
+; Name
+Protein
+
+[ molecules ]
+; Compound        #mols
+Protein             1
+Ion2                1
+Ion3                1
+SOL                 1
+SOL                 1
+SOL                 1
+SOL                 1
+SOL                 1
