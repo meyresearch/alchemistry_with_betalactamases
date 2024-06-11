@@ -1,13 +1,14 @@
 #!/bin/bash
-#SBATCH -o /home/jguven/projects/alchemistry/model_0_vim2/md/logs/md_%a.slurm.out
-#SBATCH -e /home/jguven/projects/alchemistry/model_0_vim2/md/logs/md_%a.slurm.err
+#SBATCH -o <project-directory>/md/logs/md_%a.slurm.out
+#SBATCH -e <project-directory>/md/logs/md_%a.slurm.err
+#### Other SLURM options as needed, e.g:
 #SBATCH -n 1
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:1 
 #SBATCH --cpus-per-gpu=10
 
-export ligands_dat_file=/home/jguven/projects/alchemistry/model_0_vim2/md/md_input_files/ligands.dat
+export ligands_dat_file=<project-directory>/md/md_input_files/ligands.dat
 
-export MEZEHOME=/home/jguven/projects/metalloenzymes/meze/
+export MEZEHOME=<path-to-meze-clone>/metalloenzymes/meze/
 
 source $MEZEHOME/parse.sh
 
@@ -18,7 +19,7 @@ start=`date +%s`
 
 echo "md workflow for $ligand"
 
-python $MEZEHOME/md.py $ligand -if "/home/jguven/projects/alchemistry/model_0_vim2/md/inputs/protein/vim2.input.pdb" --ligand-charge -2 --group-name vim2
+python $MEZEHOME/md.py $ligand -if "<project-directory>/md/inputs/protein/vim2.input.pdb" --ligand-charge -2 --group-name vim2
 
 end=`date +%s`
 runtime=$((end - start))
