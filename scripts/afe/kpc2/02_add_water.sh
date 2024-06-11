@@ -1,19 +1,19 @@
 #!/bin/bash
 
-#SBATCH -o /home/jguven/projects/alchemistry/kpc2/old_config_partially_protonated/logs//add_water_%a.slurm.out
-#SBATCH -e /home/jguven/projects/alchemistry/kpc2/old_config_partially_protonated/logs//add_water_%a.slurm.err
+#SBATCH -o <project-directory>/logs/add_water_%a.slurm.out
+#SBATCH -e <project-directory>/logs/add_water_%a.slurm.err
 #SBATCH -n 1
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-gpu=10
 
 
-export MEZEHOME=/home/jguven/projects/metalloenzymes/meze/
+export MEZEHOME=<path-to-meze-clone>/metalloenzymes/meze/
 
 LIG_NUMBER=$SLURM_ARRAY_TASK_ID
 
 start=`date +%s`
 
-python $MEZEHOME/solvate.py "ligand_$LIG_NUMBER" /home/jguven/projects/alchemistry/kpc2/old_config_partially_protonated/afe//protocol.dat
+python $MEZEHOME/solvate.py "ligand_$LIG_NUMBER" <project-directory>/afe/protocol.dat
 
 end=`date +%s`
 runtime=$((end - start))

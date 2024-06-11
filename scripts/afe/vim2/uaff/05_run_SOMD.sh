@@ -1,14 +1,9 @@
 #!/bin/bash
-#SBATCH -o /home/jguven/projects/uaff/vim2/logs//%x_%a.slurm.out
-#SBATCH -e /home/jguven/projects/uaff/vim2/logs//%x_%a.slurm.err
+#SBATCH -o <project-directory>/logs/%x_%a.slurm.out
+#SBATCH -e <project-directory>/logs/%x_%a.slurm.err
 #SBATCH -n 1
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-gpu 10
-
-eval "$(conda shell.bash hook)"
-conda activate obss
-
-#try without this: #SBATCH --mem 4069
 
 start=`date +%s`
 
@@ -19,7 +14,7 @@ lambdastring="$2"
 # set variables in meze.py
 engine=SOMD
 repeats=3 
-outputs_dir=/home/jguven/projects/uaff/vim2//outputs/
+outputs_dir=<project-directory>/outputs/
 
 echo "$lambdastring"
 # read in lambda string

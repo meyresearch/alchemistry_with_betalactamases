@@ -1,21 +1,21 @@
 #!/bin/bash
 
-#SBATCH -o /home/jguven/projects/uaff/vim2/logs//add_water_%a.slurm.out
-#SBATCH -e /home/jguven/projects/uaff/vim2/logs//add_water_%a.slurm.err
+#SBATCH -o <project-directory>/logs/add_water_%a.slurm.out
+#SBATCH -e <project-directory>/logs/add_water_%a.slurm.err
 
-export ligands_dat_file=/home/jguven/projects/uaff/vim2/afe/ligands.dat
-export transformations_file=/home/jguven/projects/uaff/vim2/afe//meze_network.csv
+export ligands_dat_file=<project-directory>/afe/ligands.dat
+export transformations_file=<project-directory>/afe/meze_network.csv
 
 source $MEZEHOME/parse.sh 
 
-export MEZEHOME=/home/jguven/projects/metalloenzymes/meze/
+export MEZEHOME=<path-to-meze-clone>/metalloenzymes/meze/
 
 lig_i=$SLURM_ARRAY_TASK_ID
 ligand=${ligand_array[$lig_i]}
 
 start=`date +%s`
 
-python $MEZEHOME/solvate.py "$ligand" /home/jguven/projects/uaff/vim2/afe//protocol.dat
+python $MEZEHOME/solvate.py "$ligand" <project-directory>/afe//protocol.dat
 
 end=`date +%s`
 runtime=$((end - start))

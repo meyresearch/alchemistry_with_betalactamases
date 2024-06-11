@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#SBATCH -o /home/jguven/projects/alchemistry/model_1_vim2/logs//meze_%a.slurm.out
-#SBATCH -e /home/jguven/projects/alchemistry/model_1_vim2/logs//meze_%a.slurm.err
+#SBATCH -o <project-directory>/logs/meze_%a.slurm.out
+#SBATCH -e <project-directory>/logs/meze_%a.slurm.err
 
-export MEZEHOME=/home/jguven/projects/metalloenzymes/meze/
+export MEZEHOME=<path-to-meze-clone>/metalloenzymes/meze/
 
 start=`date +%s`
 
@@ -12,7 +12,7 @@ id=$SLURM_ARRAY_TASK_ID
 source $MEZEHOME/parse.sh
 transformation=${transformations_array[$id]}
 
-python $MEZEHOME/meze.py /home/jguven/projects/alchemistry/model_1_vim2/afe//protocol.dat $transformation --no-restraints
+python $MEZEHOME/meze.py <project-directory>/afe/protocol.dat $transformation --no-restraints
 
 end=`date +%s`
 runtime=$((end - start))

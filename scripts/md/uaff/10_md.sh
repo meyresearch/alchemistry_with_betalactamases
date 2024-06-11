@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH -o <project-directory>/md/logs/md_%a.slurm.out
 #SBATCH -e <project-directory>/md/logs/md_%a.slurm.err
+#### Other SLURM options as needed, e.g:
 #SBATCH -n 1
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-gpu=10
