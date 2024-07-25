@@ -4,7 +4,7 @@ This repository contains the input data for the AFE and MD workflows that can be
 
 The `scripts` folder is split into `md` and `afe`:
 
-- `md`: The `slurm_md.sh` script can be used to run MD with the `meze` workflow for all ligands, or using the script `10_md.sh` directly. The file paths should be changed as needed in these two scripts.
+- `md`: The `slurm_md.sh` script can be used to run MD with the `meze` workflow for all ligands, or using the script `10_md.sh` directly. The file paths should be changed as needed in these two scripts. There is also an example `cpptraj.in` file that can be used to calculate the RMSD of the active site + ligand of the metal protein. 
 - `afe`: Similar to the MD workflow, the `slurm_all.sh` can be used to run the whole workflow, or each of the scripts for solvation, equilibration, etc. can be ran separately as needed. 
 
 
