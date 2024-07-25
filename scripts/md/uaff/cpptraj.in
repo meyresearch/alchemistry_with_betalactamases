@@ -1,0 +1,7 @@
+parm md.prm7
+
+trajin md.nc
+
+reference bound_ligand_16_solvated.rst7
+
+rms reference :236-239,85,87,89,150,169,211&!@H= out rmsd-active-site.dat 
