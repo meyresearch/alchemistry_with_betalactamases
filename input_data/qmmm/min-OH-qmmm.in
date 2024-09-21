@@ -1,0 +1,25 @@
+QMMM minimisation of system no restraints
+&cntrl
+ imin=1,
+ ntx=1,
+ maxcyc=1000,
+ ncyc=500,
+ ntb=1,
+ ntmin=1,
+ ntwx=50,
+ ntpr=50,
+ ioutfm=1,
+ iwrap=0,
+ ntxo=2,
+ cut=8.0,
+ ifqnt=1                
+ /
+ &qmmm
+ qmmask='(@1324-1329,1295-1305,1258-1268,2194-2204,2466-2469,3100-3110,3467-3494)',
+ writepdb=1
+ qmcharge=-1,
+ qm_theory='DFTB3',
+ qmshake=0,
+ qm_ewald=1,
+ qm_pme=1
+ /
